@@ -6,7 +6,6 @@ class Contact
   field :address, type: String
   field :_id, type: String, default: ->{ name.to_s.parameterize }
 
-  def validation
-    validates_presence_of :name, :email, :phone, :address
-  end
+  validates :name, presence: true, uniqueness: true
+  validates :phone, presence: true, length: {is: 10}
 end
