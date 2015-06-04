@@ -32,6 +32,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'mongoid', '~> 4.0.2'
 
+gem "rspec-rails", :group => [:test, :development]
+group :test do
+  gem "factory_girl_rails"
+  gem "capybara"
+  gem "guard-rspec"
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
