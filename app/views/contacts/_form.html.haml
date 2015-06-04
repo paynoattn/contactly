@@ -1,23 +1,9 @@
-= form_for @contact, html: { class: "form form-horizontal contact" } do |f|
-  .form-group
-    = f.label :name, class: 'control-label'
-    .controls
-      = f.text_field :name, class: 'form-control', required: true
-    = error_span(@contact[:name])
-  .form-group
-    = f.label :email, class: 'control-label'
-    .controls
-      = f.text_field :email, class: 'form-control', required: true
-    = error_span(@contact[:email])
-  .form-group
-    = f.label :phone, class: 'control-label'
-    .controls
-      = f.text_field :phone, class: 'form-control', required: true
-    = error_span(@contact[:phone])
-  .form-group
-    = f.label :address, class: 'control-label'
-    .controls
-      = f.text_field :address, class: 'form-control', required: true
-    = error_span(@contact[:address])
+= simple_form_for @contact, html: { class: "form form-horizontal contact" } do |f|
+  
+  = f.input :name
+  = f.input :email
+  = f.input :phone
+  = f.input :address
+
   = f.submit nil,class: 'btn btn-primary'
   = link_to t('.cancel', :default => t("helpers.links.cancel")), contacts_path, :class => 'btn btn-default'
