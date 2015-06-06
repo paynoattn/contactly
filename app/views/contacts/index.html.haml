@@ -1,24 +1,20 @@
 - model_class = Contact
 .page-header
-  %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
-%table.table.table-striped
-  %thead
-    %tr
-      %th= model_class.human_attribute_name(:id)
-      %th= model_class.human_attribute_name(:name)
-      %th= model_class.human_attribute_name(:email)
-      %th= model_class.human_attribute_name(:phone)
-      %th= model_class.human_attribute_name(:address)
-      %th=t '.actions', :default => t("helpers.actions")
-  %tbody
-    - @contacts.each do |contact|
-      %tr
-        %td= link_to contact.id, contact_path(contact)
-        %td= contact.name
-        %td= contact.email
-        %td= contact.phone
-        %td= contact.address
-        %td
+  %h1.title
+    = 'Contact.ly'
+  %span A basic rails contact app
+.row
+  - if @contacts.empty?
+    %h2 Please add some contacts
+    %p You can add contacts by pressing the + button below.
+  - else
+    .col-md-4
+      - @contacts.each do |contact|
+        = link_to(contact_path(contact)) do
+          %span.name= contact.name
+          %span.email= contact.email
+          %spam.phone= contact.phone
+        .actions
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_contact_path(contact), :class => 'btn btn-default btn-xs'
           = link_to t('.destroy', :default => t("helpers.links.destroy")), contact_path(contact), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
 
