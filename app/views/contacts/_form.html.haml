@@ -5,5 +5,6 @@
   = f.input :phone
   = f.input :address
 
-  = f.submit nil,class: 'btn btn-primary'
-  = link_to t('.cancel', :default => t("helpers.links.cancel")), contacts_path, :class => 'btn btn-default'
+  .actions
+    = f.submit nil,class: 'btn btn-lg btn-info'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), contacts_path, :class => 'btn btn-lg btn-danger'

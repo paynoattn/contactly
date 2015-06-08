@@ -1,0 +1,233 @@
+/* 
+
+Main stylesheet for Contactly app 
+(C) 2015 Creative Commons Share-Alike Non-Corporate License
+Author: Chris Pawlukiewicz
+
+*/
+
+/* bootstrap color variables */
+
+@brand-primary: darken(#428bca, 6.5%); // #337ab7
+@brand-success: #5cb85c;
+@brand-info:    #5bc0de;
+@brand-warning: #f0ad4e;
+@brand-danger:  #d9534f;
+
+@screen-xs: 480px;
+@screen-sm: 768px;
+@screen-md: 992px;
+@screen-lg: 1200px;
+
+/* application styles */
+.alert {
+  position: absolute;
+  top: 0;
+}
+.page-header {
+  background: @brand-info;
+  color: white;
+  margin: 0 -15px 2em -15px;
+  padding: 1.5em;
+  text-align: center;
+  font-size: 1.2em;
+  position: relative;
+
+  h1 {font-size: 3em;}
+
+  .back, .edit {
+    position: absolute;
+    top: 64px;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    height: 25px;
+
+    &.edit { right: 64px; }
+
+    &.back { left: 64px; }
+    
+    &:hover { text-decoration: none; }
+
+    @media screen and (max-width: @screen-sm ) {
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      bottom: 0;
+
+      &.edit { top: 105px; right: 0; }
+
+      &.back { top: 15px; left: 0; }
+    }
+  }
+}
+
+.no-contacts {
+  text-align: center;
+  h2 { font-size: 4em; }
+  p { font-size: 2.5em; }
+}
+
+.contacts-index {
+  width: 90%;
+  margin: 0 auto;
+
+  .contact {
+    text-align: center;
+    margin: 0 0 30px 0;
+
+    .contact-header {
+      padding: 4em 2em;
+      background: @brand-success;
+
+      h3 { 
+        font-size: 2.5em;
+        color: white; 
+      }
+    }
+    
+    a { 
+      text-decoration: none;
+      color: #333; 
+    }
+    
+    .contact-body {
+      font-size: 1.5em;
+      padding: 2em;
+      background: #efefef;
+
+      .detail {
+        .fa-circle {
+          position: relative;
+          
+          &:before {
+            font-size: 50px;
+            color: @brand-success;
+            }
+          &:after {
+            position: absolute;
+            left: 10px;
+            top: 14px;
+            color: white;
+          }
+        }
+        span {
+          position: relative;
+          top: -10px;
+        }
+        &.email {
+          margin-bottom: 2em;
+
+          .fa-circle:after {
+            content: "\f003";
+          }
+        }
+        &.phone {
+          .fa-circle:after {
+            content: "\f095";
+            left: 13px;
+            top: 16px;
+          }
+        }
+      }
+    }
+
+    .actions {
+      display: none;
+    }
+    
+    &.primary {
+      .contact-header { background: @brand-primary; }
+      .contact-body .detail .fa-circle:before { color: @brand-primary}
+    }
+
+    &.warning {
+      .contact-header { background: @brand-warning; }
+      .contact-body .detail .fa-circle:before { color: @brand-warning}
+    }
+
+    &.danger {
+      .contact-header { background: @brand-danger; }
+      .contact-body .detail .fa-circle:before { color: @brand-danger}
+    }
+  }
+}
+
+.contacts-new, .contacts-edit {
+  form {
+    width: 80%;
+    margin: 0 auto;
+    input[type="text"], input[type="email"], input[type="tel"] {
+      font-size: 1.5em;
+      line-height: 50px;
+      height: 50px;
+    }
+    .actions {
+      margin-top: 3em;
+    }
+  }
+  .btn-danger {
+    float: right;
+  }
+}
+
+.contact-show {
+  p {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 2em;
+
+    .fa-circle {
+      position: relative;
+      
+      &:before {
+        font-size: 50px;
+        color: @brand-info;
+        }
+      &:after {
+        position: absolute;
+        left: 7px;
+        top: 10px;
+        color: white;
+      }
+    }
+    span {
+      position: relative;
+      top: -10px;
+    }
+    &.email {
+      margin-bottom: 2em;
+
+      .fa-circle:after {
+        content: "\f003";
+      }
+    }
+    &.phone {
+      .fa-circle:after {
+        content: "\f095";
+        left: 11px;
+        top: 12px;
+      }
+    }
+    &.address {
+      .fa-circle:after {
+        content: "\f041";
+        left: 13px;
+        top: 12px;
+      }
+    }
+  }
+  .btn {
+    width: 100px;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+a.new-contact {
+    font-size: 1.5em;
+    margin: 5em auto;
+    width: 200px;
+    display: block;
+    padding: 0.5em;
+  }

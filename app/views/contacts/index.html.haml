@@ -1,21 +1,31 @@
 - model_class = Contact
-.page-header
+.page-header.row
   %h1.title
     = 'Contact.ly'
   %span A basic rails contact app
-.row
+.row.contacts-index
   - if @contacts.empty?
-    %h2 Please add some contacts
-    %p You can add contacts by pressing the + button below.
+    .row.no-contacts
+      %h2 Whoops, please add some contacts
+      %p You can add contacts by pressing the button below.
   - else
-    .col-md-4
-      - @contacts.each do |contact|
+    - @contacts.each do |contact|
+      .col-md-6.col-lg-4.contact
         = link_to(contact_path(contact)) do
-          %span.name= contact.name
-          %span.email= contact.email
-          %spam.phone= contact.phone
+          .contact-header
+            %h3.name= contact.name
+          .contact-body
+            .email.detail
+              = fa_icon "circle"
+              %span= contact.email
+            .phone.detail
+              = fa_icon "circle"
+              %span= contact.phone
         .actions
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_contact_path(contact), :class => 'btn btn-default btn-xs'
           = link_to t('.destroy', :default => t("helpers.links.destroy")), contact_path(contact), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
 
-= link_to t('.new', :default => t("helpers.links.new")), new_contact_path, :class => 'btn btn-primary'
+.row
+  = link_to new_contact_path, :class => 'btn btn-info new-contact' do
+    = fa_icon "plus"
+    New Contact
