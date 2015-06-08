@@ -1,0 +1,10 @@
+= simple_form_for @contact, html: { class: "form form-horizontal contact" } do |f|
+  
+  = f.input :name
+  = f.input :email
+  = f.input :phone
+  = f.input :address
+
+  .actions
+    = f.submit nil,class: 'btn btn-lg btn-info'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), contacts_path, :class => 'btn btn-lg btn-danger'

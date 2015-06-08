@@ -12,5 +12,25 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+
+$(function(){
+  $(".col-md-6").each(function(){
+    var random = Math.random();
+    console.log(random);
+    if (random < 0.25) {
+      $(this).addClass("primary");
+    }
+    else if (random > 0.25 && random < 0.5) {
+      $(this).addClass("success");
+    }
+    else if (random > 0.5 && random < 0.75) {
+      $(this).addClass("warning");
+    }
+    else {
+      $(this).addClass("danger");
+    }
+  })
+});

@@ -1,0 +1,21 @@
+- model_class = Contact
+.page-header
+  = link_to contacts_path, :class => 'back' do
+    = fa_icon "arrow-circle-left"
+    Back
+  %h1= @contact.name
+  = link_to edit_contact_path(@contact), :class => 'edit' do
+    = fa_icon "pencil-square"
+    Edit
+.row.contact-show
+  %p.email
+    = fa_icon "circle"
+    %span= @contact.email
+  %p.phone
+    = fa_icon "circle"
+    %span= @contact.phone
+  %p.address
+    = fa_icon "circle"
+    %span= @contact.address
+
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), contact_path(@contact), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-lg btn-danger'

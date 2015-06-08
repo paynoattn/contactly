@@ -1,28 +1,19 @@
-== README
+== Contactly
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Current version = 1.0
 
-Things you may want to cover:
+This is a basic contact app I created for a code-challenge. You can add, edit and view contacts. 
 
-* Ruby version
+Made with rails, bootstrap, simpleform and jquery.
 
-* System dependencies
+Ruby version = 2.2.1
+See gemfile for dependencies.
 
-* Configuration
+== Changelog
 
-* Database creation
+v1.0 = Initial app creation
 
-* Database initialization
+== ToDo
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+- Add user login backend
+- Create search functionality
