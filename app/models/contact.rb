@@ -8,4 +8,7 @@ class Contact
 
   validates :name, presence: true, uniqueness: true
   validates :phone, presence: true, length: {is: 10}
+  
+  belongs_to :user
+
 end
